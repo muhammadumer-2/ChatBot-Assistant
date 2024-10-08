@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <h1>ChatBot Assistant</h1>
+        
+        <div id="chat-log">
+            <ul>
+                {% for message in chat_history %}
+                <li class="{{ message['role'] }}">{{ message['content'] }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <div class="input-container">
+            <input id="chat-input" placeholder="Ask LLAMA...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
